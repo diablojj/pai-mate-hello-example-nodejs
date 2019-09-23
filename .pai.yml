@@ -1,11 +1,9 @@
 deployScripts:
   start:
     - npm install
-    - npm run start
+    - pm2 -s start --name=hello-world-example index.js
   delete:
-    - npm run stop
+    - pm2 -s delete hello-world-example
   restart:
     - npm install
-    - sleep 3
-    - sh my_build_script.sh
-    - npm run restart
+    - pm2 -s restart hello-world-example
